@@ -8,11 +8,11 @@ import SideBar from './components/sidebar/index.tsx';
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
-    <div className="flex flex-row">
+    <div className="flex flex-row" >
   <div className="basis-1/8">
   <SideBar />
   </div>
-  <div className="flex-grow" style={{backgroundColor:"#e8e8e8"}}>
+  <div className="flex-grow" style={{backgroundColor:"#e8e8e8",maxHeight:"100vh",overflowY:"auto"}}>
   <App />
   </div>
 </div>

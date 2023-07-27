@@ -109,8 +109,8 @@ const DashboardGraph = () => {
     return (
         <>
             <div className="flex justify-between flex wrap">
-                <div className=" text-xl font-medium leading-8">Dashboard</div>
-                <button className='flex flex-row'>
+                <div className=" text-xl font-medium m-5 leading-8">Dashboard</div>
+                <button className='flex flex-row m-5'>
                 <div className=" text-sm font-semibold leading-8 flex flex-row hover:text-base" style={{color:"#555F7E"}}>Advanced Report </div>
                 <img className='m-2' src="../../../src/assets/arrow-right.png" alt="" />
                 </button>

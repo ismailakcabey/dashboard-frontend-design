@@ -7,7 +7,7 @@ import DashBoardPage from './pages/dashboard';
 function App() {
 
   return (
-    <div className='m-5' >
+    <div className='m-5'  >
       <Routes>
         <Route path='/dashboard' element={<DashBoardPage/>}/>
       </Routes>
