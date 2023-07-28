@@ -3,7 +3,7 @@ import 'react-circular-progressbar/dist/styles.css';
 const CartDashboard = () => {
     return(
         <>
-        <div className="flex justify-between flex wrap m-5">
+        <div className="flex justify-between flex wrap m-5 ">
             <div>
                 Cart
             </div>

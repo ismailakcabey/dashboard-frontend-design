@@ -1,7 +1,9 @@
+import { useEffect, useState } from "react"
 import CartDashboard from "../../components/cartDashGraph"
 import DashboardGraph from "../../components/dashboardGraph"
 import DateCmp from "../../components/date"
 import ValueCard from "../../components/valueCard"
+import TrafficGraph from "../../components/trafficGraph"
 
 const DashBoardPage = () => {
     const percentsData = [
@@ -26,20 +28,25 @@ const DashBoardPage = () => {
             value:28
         }
     ]
+    const [selectedDate, setSelectedDate] = useState('');
+    useEffect(()=>{
+
+    },[selectedDate,setSelectedDate])
+  const handleDateChange = (date:string) => {
+    setSelectedDate(date);
+    console.log(date + " değeri ile tarih sorgusu atıldı")
+  };
+
     return(
         <>
-
-
         <div className="flex justify-between m-5">
         <div className="text-2xl font-inter font-medium leading-9">
           Dashboard
         </div>
         <div>
-            <DateCmp/>
+            <DateCmp onDateChange={handleDateChange}/>
         </div>
       </div>
-
-
       <div className="flex justify-around flex-wrap">
       {percentsData.map((item,key:number)=>{
         return(
@@ -47,10 +54,13 @@ const DashBoardPage = () => {
         )
       })}
 </div>
-
       <div className="flex justify-around flex wrap flex-col lg:flex-row">
-        <div className="bg-white px-5 py-5 m-5 rounded-lg w-10/10 lg:w-3/4 "><DashboardGraph/></div>
-        <div className="w-2/5 bg-white px-5 py-5 m-5 rounded-lg w-full lg:w-1/4"><CartDashboard/></div>
+        <div className="bg-white px-5 py-5 m-5 rounded-lg w-10/10 lg:w-3/4 hover:scale-105"><DashboardGraph/></div>
+        <div className="w-2/5 bg-white px-5 py-5 m-5 rounded-lg w-full lg:w-1/4 hover:scale-105"><CartDashboard/></div>
+      </div>
+
+      <div>
+        <TrafficGraph/>
       </div>
 
         </>

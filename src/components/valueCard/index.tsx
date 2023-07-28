@@ -31,7 +31,7 @@ const ValueCard = ({data}:IProps) => {
         }
     }
     return (
-        <div className="bg-white rounded-md px-1 font-inter">
+        <div className="bg-white rounded-md px-1 font-inter hover:scale-110">
             <div className="flex flex-row">
                 <div className="basis-1/2 m-5 text-lm font-medium leading-6" style={{color:"#8E95A9"}}>{data.text}</div>
                 <div className="basis-1/2 m-5 text-lm font-bold leading-6" style={{color:`${colorConvert()}`}}>{

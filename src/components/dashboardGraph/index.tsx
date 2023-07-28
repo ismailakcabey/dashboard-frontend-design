@@ -102,6 +102,9 @@ const DashboardGraph = () => {
                 autoRotate: false,
             },
         },
+        scrollbar: {
+            type: 'horizontal',
+          },
         yAxis: {
             grid: null, // Set grid to null to remove y-axis gridlines
           },

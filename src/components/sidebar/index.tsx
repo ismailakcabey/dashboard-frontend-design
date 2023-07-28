@@ -59,7 +59,6 @@ const SideBar = () => {
         active: false,
       },
   ]);
-
   const handleButtonClick = (index: number) => {
     const updatedMenuItems = menuItems.map((item, i) => {
       if (i === index) {
