@@ -10,22 +10,30 @@ const DashBoardPage = () => {
         {
             text:"Revenue",
             percent:22,
-            value:7825
+            value:7825,
+            isPercent:true,
+            isPrice:true
         },
         {
             text:"Orders",
             percent:-25,
-            value:920
+            value:920,
+            isPercent:true,
+            isPrice:true
         },
         {
             text:"Visitors",
             percent:49,
-            value:15500
+            value:15500,
+            isPercent:true,
+            isPrice:true
         },
         {
             text:"Conversion",
             percent:1.9,
-            value:28
+            value:28,
+            isPercent:true,
+            isPrice:true
         }
     ]
     const [selectedDate, setSelectedDate] = useState('');

@@ -4,6 +4,8 @@ interface IProps{
         text: string;
         percent:number;
         value:number;
+        isPercent:boolean,
+        isPrice:boolean
     }
 }
 
@@ -31,7 +33,7 @@ const ValueCard = ({data}:IProps) => {
         }
     }
     return (
-        <div className="bg-white rounded-md px-1 font-inter hover:scale-110">
+        <div className="bg-white rounded-md px-1 drop-shadow-md font-inter hover:scale-110">
             <div className="flex flex-row">
                 <div className="basis-1/2 m-5 text-lm font-medium leading-6" style={{color:"#8E95A9"}}>{data.text}</div>
                 <div className="basis-1/2 m-5 text-lm font-bold leading-6" style={{color:`${colorConvert()}`}}>{
@@ -39,8 +41,16 @@ const ValueCard = ({data}:IProps) => {
                 } {data.percent} %</div>
             </div>
             <div className="flex flex-row">
-                <div className="basis-1/2 m-5 text-2xl font-semibold leading-10">${data.value}</div>
-                <div className="basis-1/2 m-5">
+                <div className="basis-1/2 m-5 text-2xl font-semibold leading-10">
+                    <div className="flex">
+                        <div className={`${(data.isPrice)?"":"hidden"}`}>
+                            $
+                        </div>
+                        <div>
+                            {data.value}
+                        </div>
+                    </div></div>
+                <div className={`basis-1/2 m-5 ${(data.isPercent)?"":"hidden"}`}>
                     <img src={lineConvert()} alt="line" />
                 </div>
             </div>
