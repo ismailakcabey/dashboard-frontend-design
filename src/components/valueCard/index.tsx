@@ -6,6 +6,7 @@ interface IProps{
         value:number;
         isPercent:boolean,
         isPrice:boolean
+        isPercentValue:boolean
     }
 }
 
@@ -36,7 +37,7 @@ const ValueCard = ({data}:IProps) => {
         <div className="bg-white rounded-md px-1 drop-shadow-md font-inter hover:scale-110">
             <div className="flex flex-row">
                 <div className="basis-1/2 m-5 text-lm font-medium leading-6" style={{color:"#8E95A9"}}>{data.text}</div>
-                <div className="basis-1/2 m-5 text-lm font-bold leading-6" style={{color:`${colorConvert()}`}}>{
+                <div className={`basis-1/2 m-5 text-lm font-bold leading-6 ${(data.isPercentValue)?"":"hidden"}`} style={{color:`${colorConvert()}`}}>{
                     (data.percent > 0) ? <>+</>:<></>
                 } {data.percent} %</div>
             </div>
@@ -47,7 +48,8 @@ const ValueCard = ({data}:IProps) => {
                             $
                         </div>
                         <div>
-                            {data.value}
+                            {(data.isPercentValue)?<>{data.value}</>:<>{data.percent}%</>}
+                            
                         </div>
                     </div></div>
                 <div className={`basis-1/2 m-5 ${(data.isPercent)?"":"hidden"}`}>

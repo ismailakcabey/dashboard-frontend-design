@@ -70,14 +70,16 @@ const TrafficGraphModal = () => {
             percent: 22,
             value: 8950,
             isPercent: false,
-            isPrice: false
+            isPrice: false,
+            isPercentValue:true
         },
         {
             text: "Vistors",
             percent: -25,
             value: 1520,
             isPercent: false,
-            isPrice: false
+            isPrice: false,
+            isPercentValue:true
         },
     ]
     return (
@@ -91,7 +93,7 @@ const TrafficGraphModal = () => {
                     <img className='m-2' src="../../../src/assets/arrow-right.png" alt="" />
                 </button>
             </div>
-            <div className="flex justify-around">
+            <div className="flex justify-around flex-row max-lg:flex-col">
                 {percentsData.map((item: any, key: number) => {
                     return (
                         <div key={key} className=" m-5">

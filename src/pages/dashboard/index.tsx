@@ -4,6 +4,7 @@ import DashboardGraph from "../../components/dashboardGraph"
 import DateCmp from "../../components/date"
 import ValueCard from "../../components/valueCard"
 import TrafficGraph from "../../components/trafficGraph"
+import SalesDash from "../../components/sales"
 
 const DashBoardPage = () => {
     const percentsData = [
@@ -12,28 +13,32 @@ const DashBoardPage = () => {
             percent:22,
             value:7825,
             isPercent:true,
-            isPrice:true
+            isPrice:true,
+            isPercentValue:true
         },
         {
             text:"Orders",
             percent:-25,
             value:920,
             isPercent:true,
-            isPrice:true
+            isPrice:true,
+            isPercentValue:true
         },
         {
             text:"Visitors",
             percent:49,
             value:15500,
             isPercent:true,
-            isPrice:true
+            isPrice:true,
+            isPercentValue:true
         },
         {
             text:"Conversion",
             percent:1.9,
             value:28,
             isPercent:true,
-            isPrice:true
+            isPrice:true,
+            isPercentValue:true
         }
     ]
     const [selectedDate, setSelectedDate] = useState('');
@@ -71,6 +76,9 @@ const DashBoardPage = () => {
         <TrafficGraph/>
       </div>
 
+      <div>
+        <SalesDash/>
+      </div>
         </>
     )
 }
