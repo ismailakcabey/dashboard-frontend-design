@@ -1,31 +1,51 @@
 import { SearchOutlined } from "@ant-design/icons";
 import { Button, Input, InputRef, Space } from "antd";
-import { ColumnType, ColumnsType, FilterConfirmProps } from "antd/es/table/interface";
+import { ColumnType, ColumnsType } from "antd/es/table";
+import { FilterConfirmProps } from "antd/es/table/interface";
 import { useEffect, useRef, useState } from "react";
 //@ts-ignore
 import Highlighter from 'react-highlight-words';
+import StatusCmp from "../statusCmp";
 interface DataType {
     key: string;
-    product: string;
-    price: number;
-    sold: number;
-    profit: number;
     image: string;
+    product: string;
+    qty:number;
+    date: string;
+    revenue: number;
+    netProfit: number;
+    status: string;
   }
   type DataIndex = keyof DataType;
+
   type ColumnDataResult = {
     columns: ColumnsType<DataType>;
     searchedValues: { [key in DataIndex]: string };
+    edit:boolean,
+    trash:boolean,
+    more:boolean,
+    currentProduct:DataType
   };
-const columnData = ():ColumnDataResult => {
+
+  const columnData = (): ColumnDataResult => {
+    function formatDateToCustomString(dateString: string): string {
+        const date = new Date(dateString);
+        const options = { year: 'numeric', month: 'short', day: 'numeric' };
+        //@ts-ignore
+        return date.toLocaleDateString('en-US', options);
+      }
     const [searchText, setSearchText] = useState('');
+    const [edit,setEdit] = useState(false);
+    const [trash,setTrash] = useState(false);
+    const [more,setMore] = useState(false);
+    const [currentProduct,setCurrentProduct] = useState({});
   const [searchedColumn, setSearchedColumn] = useState('');
   //@ts-ignore
   const [searchedValues, setSearchedValues] = useState<{ [key in DataIndex]: string }>({});
   const searchInput = useRef<InputRef>(null);
   useEffect(()=>{
     
-  },[searchText, setSearchText,searchedValues, setSearchedValues,searchedColumn,setSearchedColumn])
+  },[searchText, setSearchText,searchedValues, setSearchedValues,searchedColumn,setSearchedColumn,edit,setEdit,more,setMore,trash,setTrash,currentProduct,setCurrentProduct])
   const handleSearch = (
     selectedKeys: string[],
     confirm: (param?: FilterConfirmProps) => void,
@@ -136,30 +156,77 @@ const columnData = ():ColumnDataResult => {
       },
       {
         title: (
-            <div className="leading-6 text-sm font-semibold" style={{color:"#8E95A9"}}>Price</div>
+            <div className="leading-6 text-sm font-semibold" style={{color:"#8E95A9"}}>QTY</div>
         ),
-        dataIndex: 'price',
+        dataIndex: 'qty',
+        ...getColumnSearchProps('qty'),
+        sorter:true,
+        render: (text: string,data:DataType) => <div style={{color:"#555F7E"}} className="ml-1 text-sm leading-6 px-2 py-2">x{text}</div>,
+      },
+      {
+        title: (
+            <div className="leading-6 text-sm font-semibold" style={{color:"#8E95A9"}}>Date</div>
+        ),
+        dataIndex: 'date',
+        sorter:true,
+        render: (text: string,data:DataType) => <div style={{color:"#555F7E"}} className="ml-1 text-sm leading-6 px-2 py-2">{formatDateToCustomString(text)}</div>,
+      },
+      {
+        title: (
+            <div className="leading-6 text-sm font-semibold" style={{color:"#8E95A9"}}>Revenue</div>
+        ),
+        dataIndex: 'revenue',
+        ...getColumnSearchProps('revenue'),
         sorter:true,
         render: (text: string,data:DataType) => <div style={{color:"#555F7E"}} className="ml-1 text-sm leading-6 px-2 py-2">${text}</div>,
       },
       {
         title: (
-            <div className="leading-6 text-sm font-semibold" style={{color:"#8E95A9"}}>Sold</div>
+            <div className="leading-6 text-sm font-semibold" style={{color:"#8E95A9"}}>Net Profit</div>
         ),
-        dataIndex: 'sold',
+        dataIndex: 'netProfit',
+        ...getColumnSearchProps('netProfit'),
         sorter:true,
-        render: (text: string,data:DataType) => <div style={{color:"#555F7E"}} className="ml-1 text-sm leading-6 px-2 py-2">{text}</div>,
+        render: (text: string,data:DataType) => <div style={{color:"#555F7E"}} className="ml-1 text-sm leading-6 px-2 py-2">${text}</div>,
       },
       {
         title: (
-            <div className="leading-6 text-sm font-semibold" style={{color:"#8E95A9"}}>Profit</div>
+            <div className="leading-6 text-sm font-semibold" style={{color:"#8E95A9"}}>Status</div>
         ),
-        dataIndex: 'profit',
+        dataIndex: 'status',
+        ...getColumnSearchProps('status'),
         sorter:true,
-        render: (text: string,data:DataType) => <div style={{color:"#555F7E"}} className="ml-1 text-sm leading-6 px-2 py-2">${text}</div>,
+        render: (text: string,data:DataType) => <div style={{color:"#555F7E"}} className="ml-1 text-sm leading-6 px-2 py-2"><StatusCmp status={text}/></div>,
+      },
+      {
+        title: (
+            <div className="leading-6 text-sm font-semibold" style={{color:"#8E95A9"}}> </div>
+        ),
+        dataIndex: '',
+        sorter:true,
+        //@ts-ignore
+        render: (text: string,data:DataType) => <div style={{color:"#555F7E"}} className="ml-1 text-sm leading-6 px-2 py-2 flex flex-row">
+            <button onClick={()=>{
+                setCurrentProduct(data)
+                
+            }}>
+            <img src="../../../src/assets/edit.png" className="m-3 hover:scale-110" alt="" />
+            </button>
+            <button onClick={()=>{
+                setCurrentProduct(data)
+            }}>
+            <img src="../../../src/assets/trash.png" className="m-3 hover:scale-110" alt="" />
+            </button>
+            <button onClick={()=>{
+                setCurrentProduct(data)
+            }}>
+            <img src="../../../src/assets/more.png" className="m-3 hover:scale-110" alt="" />
+            </button>
+        </div>,
       },
 ]
-  return {columns,searchedValues}
-}
+//@ts-ignore
+  return {columns,searchedValues,edit,trash,more,currentProduct}
+  }
 
-export default columnData
+  export default columnData

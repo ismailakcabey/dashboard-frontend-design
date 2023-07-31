@@ -58,7 +58,7 @@ const TableCmp = () => {
     return (
         <>
         <Table
-        className="hover:scale-105"
+        scroll={{ x:100 }}
         columns={columns}
         dataSource={data}
         pagination={false}

@@ -4,7 +4,7 @@ interface IProps {
   }
   
   const PaginationFormatCmp = ({ total, range }: IProps) => {
-    return <>{`${range[0]}/${range[1]} - ${total} Kayıt`}</>;
+    return <>{`${range[0]}/${range[1]} - ${total} Page`}</>;
   };
   
   export default PaginationFormatCmp;

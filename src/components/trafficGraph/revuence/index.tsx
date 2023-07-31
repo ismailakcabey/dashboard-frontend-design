@@ -80,7 +80,7 @@ mainData.map((item:MainData)=>{
         <div>
         <Pie {...config} />
         </div>
-        <div className="flex justify-around flex-row max-lg:flex-col">
+        <div className="flex justify-around flex-row max-xl:flex-col">
           {
             mainData.map((item:MainData,key:number)=>{
               return(

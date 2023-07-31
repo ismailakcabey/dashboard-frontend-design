@@ -81,7 +81,7 @@ const SideBar = () => {
 
   return (
     <div className="object-left-top h-screen grid grid-rows-[1fr,1fr,7fr] px-8 py-8" style={{ backgroundColor: "#FF8901" }}>
-      <div className="m-1 text-lg font-inter text-white font-bold">mart
+      <div className="m-1 text-lg font-inter text-white font-bold cursor-default">mart
       </div>
       <div className="grid gap-5 text-white">
         {menuItems.map((item: MenuItems, key: number) => {

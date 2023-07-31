@@ -5,6 +5,7 @@ import DateCmp from "../../components/date"
 import ValueCard from "../../components/valueCard"
 import TrafficGraph from "../../components/trafficGraph"
 import SalesDash from "../../components/sales"
+import MainTable from "../../components/mainTable"
 
 const DashBoardPage = () => {
     const percentsData = [
@@ -78,6 +79,9 @@ const DashBoardPage = () => {
 
       <div>
         <SalesDash/>
+      </div>
+      <div>
+        <MainTable/>
       </div>
         </>
     )
