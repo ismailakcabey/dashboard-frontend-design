@@ -63,6 +63,18 @@ const TrafficGraphModal = () => {
                 duration: 5000,
             },
         },
+        lineStyle:{
+            lineWidth:5
+        },
+        tooltip:{
+            customContent:(title:any,data:any)=>{
+                return(
+                    <div style={{backgroundColor:"#FF8901",margin:"-25px -25px -25px -25px"}} className="rounded-lg">
+                        <div className="m-5 text-white font-semibold text-xl" style={{backgroundColor:"#FF8901"}} >{data[0]?.data?.gdp}</div>
+                    </div>
+                )
+            }
+        }
     };
     const percentsData = [
         {

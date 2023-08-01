@@ -2,7 +2,7 @@ import TableCmp from "./table"
 
 const MainTable = () => {
     return(
-        <div className="px-5 py-5 m-7 bg-white rounded-lg hover:scale-105">
+        <div className="px-5 py-5 m-7 bg-white rounded-lg ">
         <div className="flex justify-between m-5">
                 <div className="text-xl font-medium leading-8 m-5">
                 Latest Orders

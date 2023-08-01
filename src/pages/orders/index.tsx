@@ -1,13 +1,9 @@
-import { useEffect, useState } from "react"
-import CartDashboard from "../../components/cartDashGraph"
-import DashboardGraph from "../../components/dashboardGraph"
-import DateCmp from "../../components/date"
-import ValueCard from "../../components/valueCard"
-import TrafficGraph from "../../components/trafficGraph"
-import SalesDash from "../../components/sales"
-import MainTable from "../../components/mainTable"
+import { useEffect, useState } from "react";
+import DateCmp from "../../components/date";
+import ValueCard from "../../components/valueCard";
+import OrdersGraph from "../../components/ordersGraph";
 
-const DashBoardPage = () => {
+const Orders = () => {
     const percentsData = [
         {
             text:"Revenue",
@@ -50,12 +46,11 @@ const DashBoardPage = () => {
     setSelectedDate(date);
     console.log(date + " değeri ile tarih sorgusu atıldı")
   };
-
     return(
         <>
-        <div className="flex justify-between m-5">
+         <div className="flex justify-between m-5">
         <div className="text-2xl font-inter font-medium leading-9">
-          Dashboard
+          Orders
         </div>
         <div>
             <DateCmp onDateChange={handleDateChange}/>
@@ -64,7 +59,6 @@ const DashBoardPage = () => {
             <img src="../../../src/assets/more.png" className="ml-5 hover:scale-110" alt="" />
             </button>
         </div>
-        
       </div>
       <div className="flex justify-around flex-wrap">
       {percentsData.map((item,key:number)=>{
@@ -73,23 +67,12 @@ const DashBoardPage = () => {
         )
       })}
 </div>
-      <div className="flex justify-around flex wrap flex-col lg:flex-row">
-        <div className="bg-white px-5 py-5 m-5 rounded-lg w-10/10 lg:w-3/4"><DashboardGraph/></div>
-        <div className="w-2/5 bg-white px-5 py-5 m-5 rounded-lg w-full lg:w-1/4"><CartDashboard/></div>
-      </div>
-
+      <OrdersGraph/>
       <div>
-        <TrafficGraph/>
-      </div>
-
-      <div>
-        <SalesDash/>
-      </div>
-      <div>
-        <MainTable/>
+        table
       </div>
         </>
     )
 }
 
-export default DashBoardPage
+export default Orders
