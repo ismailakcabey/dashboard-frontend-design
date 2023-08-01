@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import DateCmp from "../../components/date";
 import ValueCard from "../../components/valueCard";
 import OrdersGraph from "../../components/ordersGraph";
+import OrdersTable from "../../components/ordersTable";
 
 const Orders = () => {
     const percentsData = [
@@ -67,10 +68,13 @@ const Orders = () => {
         )
       })}
 </div>
-      <OrdersGraph/>
-      <div>
-        table
-      </div>
+<div className="m-5">
+<OrdersGraph/>
+</div>
+     <div className="m-5">
+     <OrdersTable/>
+     </div>
+      
         </>
     )
 }

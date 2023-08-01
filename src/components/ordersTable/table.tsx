@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
-import columnData from "./column";
 import { Table, TablePaginationConfig } from "antd";
 import PaginationFormatCmp from "../pagenation-format";
 import { FilterValue, SorterResult } from "antd/es/table/interface";
+import columnData from "./column";
 interface DataType {
     key: string;
-    image: string;
-    product: string;
-    qty:number;
+    products:string[];
     date: string;
+    customer:string;
     revenue: number;
     netProfit: number;
     status: string;
   }
+
   export interface ITableQueryParams<T> {
     pagination: TablePaginationConfig;
     filters?: Record<string, FilterValue | null>;
@@ -27,7 +27,8 @@ interface DataType {
     defaultCurrent: 1,
   };
   type DataIndex = keyof DataType;
-const TableCmp = () => {
+
+  const TableCmp = () => {
     const { columns, searchedValues,edit,trash,more,currentProduct } = columnData();
     console.log(currentProduct,"currentProduct")
     const [tableParams, setTableParams] = useState<ITableQueryParams<any>>({
@@ -42,83 +43,46 @@ const TableCmp = () => {
     const data:DataType[] = [
         {
             //@ts-ignore
-            id:'1',
-            product:'Deco accessory',
-            qty:2,
+            id:'53200002',
+            products:['../../../src/assets/product5.png','../../../src/assets/product6.png','../../../src/assets/product7.png','../../../src/assets/product5.png'],
             date:"2020-02-05",
             revenue:253.82,
             netProfit:60.76,
             status:'Pending',
-            image:'../../../src/assets/product5.png'
-        },{
+            customer:'Ronald Jones'
+        },
+        {
             //@ts-ignore
-            id:'2',
-            product:'Basket with handles',
-            qty:3,
-            date:"2020-09-08",
+            id:'53200003',
+            products:['../../../src/assets/product6.png','../../../src/assets/product7.png','../../../src/assets/product5.png','../../../src/assets/product5.png','../../../src/assets/product5.png'],
+            date:"2020-09-04",
             revenue:556.24,
             netProfit:66.41,
             status:'Shipping',
-            image:'../../../src/assets/product6.png'
+            customer:'Jacob Mckinney'
         },
         {
             //@ts-ignore
-            id:'3',
-            product:'Flower vase',
-            qty:3,
-            date:"2020-12-21",
+            id:'53200004',
+            products:['../../../src/assets/product7.png','../../../src/assets/product5.png','../../../src/assets/product6.png','../../../src/assets/product5.png','../../../src/assets/product5.png','../../../src/assets/product7.png','../../../src/assets/product5.png','../../../src/assets/product5.png'],
+            date:"2020-08-30",
             revenue:115.26,
             netProfit:95.66,
             status:'Refund',
-            image:'../../../src/assets/product7.png'
+            customer:'Randall Murphy'
         },
         {
             //@ts-ignore
-            id:'4',
-            product:'Deco accessory',
-            qty:2,
-            date:"2020-08-13",
+            id:'53200005',
+            products:['../../../src/assets/product5.png','../../../src/assets/product6.png','../../../src/assets/product7.png'],
+            date:"2020-08-29",
             revenue:675.51,
             netProfit:84.80,
             status:'Completed',
-            image:'../../../src/assets/product8.png'
+            customer:'Philip Web'
         },
-        {
-            //@ts-ignore
-            id:'5',
-            product:'Pottery Vase',
-            qty:2,
-            date:"2020-05-08",
-            revenue:910.71,
-            netProfit:46.52,
-            status:'Shipping',
-            image:'../../../src/assets/product9.png'
-        },
-        {
-            //@ts-ignore
-            id:'6',
-            product:'Rose Holdback',
-            qty:4,
-            date:"2020-10-15",
-            revenue:897.90,
-            netProfit:81.54,
-            status:'Completed',
-            image:'../../../src/assets/product10.png'
-        },
-        {
-            //@ts-ignore
-            id:'7',
-            product:'Table Lamp',
-            qty:4,
-            date:"2020-09-14",
-            revenue:563.43,
-            netProfit:17.46,
-            status:'Pending',
-            image:'../../../src/assets/product11.png'
-        }
     ]
-    
-      const handleTableChange = (
+    const handleTableChange = (
         pagination: TablePaginationConfig,
         filters: Record<string, FilterValue | null>,
         sorter: SorterResult<any> | SorterResult<any>[]
@@ -134,7 +98,7 @@ const TableCmp = () => {
           
         }
       };
-    return(
+      return(
         <>
         <Table
         scroll={{ x:100 }}
@@ -152,6 +116,6 @@ const TableCmp = () => {
       />
         </>
     )
-}
+  }
 
-export default TableCmp
+  export default TableCmp

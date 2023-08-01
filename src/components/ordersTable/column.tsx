@@ -6,12 +6,13 @@ import { useEffect, useRef, useState } from "react";
 //@ts-ignore
 import Highlighter from 'react-highlight-words';
 import StatusCmp from "../statusCmp";
+import ImageCmp from "./imageCmp";
+
 interface DataType {
     key: string;
-    image: string;
-    product: string;
-    qty:number;
+    products:string[];
     date: string;
+    customer:string;
     revenue: number;
     netProfit: number;
     status: string;
@@ -27,7 +28,7 @@ interface DataType {
     currentProduct:DataType
   };
 
-  const columnData = (): ColumnDataResult => {
+  const columnData = ():ColumnDataResult =>{
     function formatDateToCustomString(dateString: string): string {
         const date = new Date(dateString);
         const options = { year: 'numeric', month: 'short', day: 'numeric' };
@@ -145,31 +146,53 @@ interface DataType {
   const columns:ColumnsType<DataType> = [
     {
         title: (
-            <div className="leading-6 text-sm font-semibold" style={{color:"#8E95A9"}}>Product</div>
+            <div className="leading-6 text-sm font-semibold" style={{color:"#8E95A9"}}>Order ID</div>
         ),
-        ...getColumnSearchProps('product'),
-        dataIndex: 'product',
+        //@ts-ignore
+        ...getColumnSearchProps('id'),
+        dataIndex: 'id',
         render: (text: string,data:DataType) => <div className="flex flex-row ml-5 mr-5 pl-2 pr-5">
-            <img className="mr-1 w-12 h-12" src={data.image} alt="" />
-            <div style={{color:"#555F7E"}} className="m-1 text-sm leading-6">{text}</div>
+            <div style={{color:"#555F7E"}} className="m-1 text-sm leading-6">#{text}</div>
         </div>,
       },
       {
         title: (
-            <div className="leading-6 text-sm font-semibold" style={{color:"#8E95A9"}}>QTY</div>
+            <div className="leading-6 text-sm font-semibold" style={{color:"#8E95A9"}}>Products</div>
         ),
-        dataIndex: 'qty',
-        ...getColumnSearchProps('qty'),
+        dataIndex: 'products',
         sorter:true,
-        render: (text: string,data:DataType) => <div style={{color:"#555F7E"}} className="ml-1 text-sm leading-6 px-2 py-2">x{text}</div>,
+        render: (text: string,data:DataType) => <div className="flex flex-row ml-5 mr-5 pl-2 pr-5">
+            <div style={{color:"#555F7E"}} className="m-1 text-sm leading-6 flex flex-row justify-center">
+                <div>
+                    <ImageCmp images={data.products}/>
+                </div>
+                  <div className="mr-3 ml-3 border-gray-300 border-2 rounded-full w-5 h-5 flex items-center justify-center">
+                    {text.length}
+                  </div>
+                  <div> 
+                  {text.length} Items
+                  </div>
+                  </div>
+        </div>,
       },
       {
         title: (
             <div className="leading-6 text-sm font-semibold" style={{color:"#8E95A9"}}>Date</div>
         ),
-        dataIndex: 'date',
         sorter:true,
+        dataIndex: 'date',
         render: (text: string,data:DataType) => <div style={{color:"#555F7E"}} className="ml-1 text-sm leading-6 px-2 py-2">{formatDateToCustomString(text)}</div>,
+      },
+      {
+        title: (
+            <div className="leading-6 text-sm font-semibold" style={{color:"#8E95A9"}}>Customer</div>
+        ),
+        //@ts-ignore
+        ...getColumnSearchProps('customer'),
+        dataIndex: 'customer',
+        render: (text: string,data:DataType) => <div className="flex flex-row ml-5 mr-5 pl-2 pr-5">
+            <div style={{color:"#555F7E"}} className="m-1 text-sm leading-6">{text}</div>
+        </div>,
       },
       {
         title: (
@@ -223,8 +246,8 @@ interface DataType {
             </button>
         </div>,
       },
-]
-//@ts-ignore
+  ]
+  //@ts-ignore
   return {columns,searchedValues,edit,trash,more,currentProduct}
   }
 
