@@ -66,6 +66,9 @@ interface DataType {
   };
   const getColumnSearchProps = (dataIndex: DataIndex): ColumnType<DataType> => ({
     filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters, close }) => {
+        console.log("data index: " + dataIndex)
+        //@ts-ignore
+        if(dataIndex == 'id') console.log("id") // bu şekilde özel componentler oluşturulabilir
         return (
             <div style={{ padding: 8 }} onKeyDown={(e) => e.stopPropagation()}>
                 <Input
