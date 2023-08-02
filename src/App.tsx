@@ -5,6 +5,7 @@ import {
 } from 'react-router-dom';
 import DashBoardPage from './pages/dashboard';
 import Orders from './pages/orders';
+import Products from './pages/products';
 function App() {
 
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path='/dashboard' element={<DashBoardPage/>}/>
         <Route path='/orders' element={<Orders/>}/>
+        <Route path='/products' element={<Products/>}/>
       </Routes>
     </div>
   )

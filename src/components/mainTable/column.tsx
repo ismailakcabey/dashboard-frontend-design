@@ -161,6 +161,13 @@ interface DataType {
         dataIndex: 'qty',
         ...getColumnSearchProps('qty'),
         sorter:true,
+        sortIcon(props) {
+            return(
+              <>
+              <img src="../../../src/assets/Sort.png" alt="" />
+              </>
+            )
+        },
         render: (text: string,data:DataType) => <div style={{color:"#555F7E"}} className="ml-1 text-sm leading-6 px-2 py-2">x{text}</div>,
       },
       {
@@ -169,6 +176,13 @@ interface DataType {
         ),
         dataIndex: 'date',
         sorter:true,
+        sortIcon(props) {
+          return(
+            <>
+            <img src="../../../src/assets/Sort.png" alt="" />
+            </>
+          )
+      },
         render: (text: string,data:DataType) => <div style={{color:"#555F7E"}} className="ml-1 text-sm leading-6 px-2 py-2">{formatDateToCustomString(text)}</div>,
       },
       {
@@ -178,6 +192,13 @@ interface DataType {
         dataIndex: 'revenue',
         ...getColumnSearchProps('revenue'),
         sorter:true,
+        sortIcon(props) {
+          return(
+            <>
+            <img src="../../../src/assets/Sort.png" alt="" />
+            </>
+          )
+      },
         render: (text: string,data:DataType) => <div style={{color:"#555F7E"}} className="ml-1 text-sm leading-6 px-2 py-2">${text}</div>,
       },
       {
@@ -187,6 +208,13 @@ interface DataType {
         dataIndex: 'netProfit',
         ...getColumnSearchProps('netProfit'),
         sorter:true,
+        sortIcon(props) {
+          return(
+            <>
+            <img src="../../../src/assets/Sort.png" alt="" />
+            </>
+          )
+      },
         render: (text: string,data:DataType) => <div style={{color:"#555F7E"}} className="ml-1 text-sm leading-6 px-2 py-2">${text}</div>,
       },
       {
@@ -196,6 +224,13 @@ interface DataType {
         dataIndex: 'status',
         ...getColumnSearchProps('status'),
         sorter:true,
+        sortIcon(props) {
+          return(
+            <>
+            <img src="../../../src/assets/Sort.png" alt="" />
+            </>
+          )
+      },
         render: (text: string,data:DataType) => <div style={{color:"#555F7E"}} className="ml-1 text-sm leading-6 px-2 py-2"><StatusCmp status={text}/></div>,
       },
       {

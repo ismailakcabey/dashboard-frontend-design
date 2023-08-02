@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import DateCmp from "../../components/date";
 import ValueCard from "../../components/valueCard";
-import OrdersGraph from "../../components/ordersGraph";
 import OrdersTable from "../../components/ordersTable";
+import GraphCmp from "../../components/ordersGraph";
 
 const Orders = () => {
     const percentsData = [
@@ -39,6 +39,44 @@ const Orders = () => {
             isPercentValue:true
         }
     ]
+    const data = [
+      {
+          "name": "Data",
+          "day": "2",
+          "gdp": 120
+      },
+      {
+          "name": "Data",
+          "day": "4",
+          "gdp": 130
+      },
+      {
+          "name": "Data",
+          "day": "6",
+          "gdp": 140
+      },
+      {
+          "name": "Data",
+          "day": "8",
+          "gdp": 125
+      },
+      {
+          "name": "Data",
+          "day": "10",
+          "gdp": 160
+      },
+      {
+          "name": "Data",
+          "day": "12",
+          "gdp": 110
+      },
+      {
+          "name": "Data",
+          "day": "14",
+          "gdp": 170
+      },
+      
+  ]
     const [selectedDate, setSelectedDate] = useState('');
     useEffect(()=>{
 
@@ -69,7 +107,7 @@ const Orders = () => {
       })}
 </div>
 <div className="m-5">
-<OrdersGraph/>
+<GraphCmp isHeader={true} data={data} details="Orders Update" router="" buttonName="View Details" isXAxis={true} isYAxis={true}/>
 </div>
      <div className="m-5">
      <OrdersTable/>

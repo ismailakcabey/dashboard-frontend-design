@@ -161,6 +161,13 @@ interface DataType {
         ),
         dataIndex: 'products',
         sorter:true,
+        sortIcon(props) {
+          return(
+            <>
+            <img src="../../../src/assets/Sort.png" alt="" />
+            </>
+          )
+      },
         render: (text: string,data:DataType) => <div className="flex flex-row ml-5 mr-5 pl-2 pr-5">
             <div style={{color:"#555F7E"}} className="m-1 text-sm leading-6 flex flex-row justify-center">
                 <div>
@@ -180,6 +187,13 @@ interface DataType {
             <div className="leading-6 text-sm font-semibold" style={{color:"#8E95A9"}}>Date</div>
         ),
         sorter:true,
+        sortIcon(props) {
+          return(
+            <>
+            <img src="../../../src/assets/Sort.png" alt="" />
+            </>
+          )
+      },
         dataIndex: 'date',
         render: (text: string,data:DataType) => <div style={{color:"#555F7E"}} className="ml-1 text-sm leading-6 px-2 py-2">{formatDateToCustomString(text)}</div>,
       },
@@ -201,6 +215,13 @@ interface DataType {
         dataIndex: 'revenue',
         ...getColumnSearchProps('revenue'),
         sorter:true,
+        sortIcon(props) {
+          return(
+            <>
+            <img src="../../../src/assets/Sort.png" alt="" />
+            </>
+          )
+      },
         render: (text: string,data:DataType) => <div style={{color:"#555F7E"}} className="ml-1 text-sm leading-6 px-2 py-2">${text}</div>,
       },
       {
@@ -210,6 +231,13 @@ interface DataType {
         dataIndex: 'netProfit',
         ...getColumnSearchProps('netProfit'),
         sorter:true,
+        sortIcon(props) {
+          return(
+            <>
+            <img src="../../../src/assets/Sort.png" alt="" />
+            </>
+          )
+      },
         render: (text: string,data:DataType) => <div style={{color:"#555F7E"}} className="ml-1 text-sm leading-6 px-2 py-2">${text}</div>,
       },
       {
@@ -219,6 +247,13 @@ interface DataType {
         dataIndex: 'status',
         ...getColumnSearchProps('status'),
         sorter:true,
+        sortIcon(props) {
+          return(
+            <>
+            <img src="../../../src/assets/Sort.png" alt="" />
+            </>
+          )
+      },
         render: (text: string,data:DataType) => <div style={{color:"#555F7E"}} className="ml-1 text-sm leading-6 px-2 py-2"><StatusCmp status={text}/></div>,
       },
       {

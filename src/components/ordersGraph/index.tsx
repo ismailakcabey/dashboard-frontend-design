@@ -1,45 +1,18 @@
 import { Line, LineConfig } from "@ant-design/plots";
 import { Tooltip } from "antd";
 
-const OrdersGraph = () => {
-    const data = [
-        {
-            "name": "Data",
-            "day": "2",
-            "gdp": 120
-        },
-        {
-            "name": "Data",
-            "day": "4",
-            "gdp": 130
-        },
-        {
-            "name": "Data",
-            "day": "6",
-            "gdp": 140
-        },
-        {
-            "name": "Data",
-            "day": "8",
-            "gdp": 125
-        },
-        {
-            "name": "Data",
-            "day": "10",
-            "gdp": 160
-        },
-        {
-            "name": "Data",
-            "day": "12",
-            "gdp": 110
-        },
-        {
-            "name": "Data",
-            "day": "14",
-            "gdp": 170
-        },
-        
-    ]
+interface IProps{
+    data:object[],
+    isYAxis:boolean
+    isXAxis:boolean
+    details:string
+    router:string
+    buttonName:string
+    isHeader:boolean
+}
+
+const GraphCmp = ({data,isYAxis,isXAxis,details,router,buttonName,isHeader}:IProps) => {
+    
     const config: LineConfig = {
         data,
         xField: 'day',
@@ -51,7 +24,7 @@ const OrdersGraph = () => {
           },
           yAxis: {
             label: {
-                formatter: (v: any) => `${v}`, // Etiket formatını belirleyin
+                formatter: (v: any) => `${(isYAxis)?`${v}`:""}`, // Etiket formatını belirleyin
                 //@ts-ignore
                 visible: true, // Etiketleri görünür yapın
             },
@@ -80,15 +53,15 @@ const OrdersGraph = () => {
     };
     return(
         <div className=" bg-white rounded-lg px-5 py-5">
-        <div className="flex justify-between flex wrap">
+        <div className={`flex justify-between flex wrap ${(isHeader)?"":"hidden"}`}>
                 <div className="text-sm m-5 leading-8 flex" style={{color:"#1C2A53"}}>
                     <div className="mr-5 mt-3">
                         <img src="../../../src/assets/dot3.png" alt="" />
                     </div>
-                    <div>Orders Update</div>
+                    <div>{details}</div>
                 </div>
-                <button className='flex flex-row m-5'>
-                <div className=" text-sm font-semibold leading-8 flex flex-row hover:text-base" style={{color:"#555F7E"}}>View Details</div>
+                <button className={`flex flex-row m-5`}>
+                <div className=" text-sm font-semibold leading-8 flex flex-row hover:text-base" style={{color:"#555F7E"}}>{buttonName}</div>
                 <img className='m-2' src="../../../src/assets/arrow-right.png" alt="" />
                 </button>
         </div>
@@ -99,4 +72,4 @@ const OrdersGraph = () => {
     )
 }
 
-export default OrdersGraph
+export default GraphCmp

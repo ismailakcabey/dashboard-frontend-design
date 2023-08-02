@@ -140,6 +140,13 @@ const columnData = ():ColumnDataResult => {
         ),
         dataIndex: 'price',
         sorter:true,
+        sortIcon(props) {
+          return(
+            <>
+            <img src="../../../src/assets/Sort.png" alt="" />
+            </>
+          )
+      },
         render: (text: string,data:DataType) => <div style={{color:"#555F7E"}} className="ml-1 text-sm leading-6 px-2 py-2">${text}</div>,
       },
       {
@@ -148,6 +155,13 @@ const columnData = ():ColumnDataResult => {
         ),
         dataIndex: 'sold',
         sorter:true,
+        sortIcon(props) {
+          return(
+            <>
+            <img src="../../../src/assets/Sort.png" alt="" />
+            </>
+          )
+      },
         render: (text: string,data:DataType) => <div style={{color:"#555F7E"}} className="ml-1 text-sm leading-6 px-2 py-2">{text}</div>,
       },
       {
@@ -156,6 +170,13 @@ const columnData = ():ColumnDataResult => {
         ),
         dataIndex: 'profit',
         sorter:true,
+        sortIcon(props) {
+          return(
+            <>
+            <img src="../../../src/assets/Sort.png" alt="" />
+            </>
+          )
+      },
         render: (text: string,data:DataType) => <div style={{color:"#555F7E"}} className="ml-1 text-sm leading-6 px-2 py-2">${text}</div>,
       },
 ]

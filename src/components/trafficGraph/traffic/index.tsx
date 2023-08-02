@@ -1,5 +1,6 @@
 import { Line, LineConfig } from "@ant-design/plots";
 import ValueCard from "../../valueCard"
+import GraphCmp from "../../ordersGraph";
 
 const TrafficGraphModal = () => {
     const data = [
@@ -118,7 +119,7 @@ const TrafficGraphModal = () => {
                 Jan 16 - Jan 30 store visits chart
             </div>
             <div style={{ color: "#8E95A9" }} className="font-medium text-sm">
-                <Line {...config} />
+            <GraphCmp isHeader={false} data={data} details="" router="" buttonName="" isXAxis={true} isYAxis={false}/>
             </div>
         </div>
     )

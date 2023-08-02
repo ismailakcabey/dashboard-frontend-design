@@ -28,7 +28,7 @@ const SideBar = () => {
     {
       imageActive: "../../../src/assets/aShopping-bag.png",
       imagePassive: "../../../src/assets/nShopping-bag.png",
-      link: "/shoping",
+      link: "/products",
       active: false,
       name:"Products"
     },
@@ -78,6 +78,14 @@ const SideBar = () => {
     });
     setMenuItems(updatedMenuItems);
   };
+  useEffect(() => {
+    const currentPath = window.location.pathname;
+    const firstSegment = currentPath.split('/')[1]; // URL'yi "/" karakterine göre böleriz ve ilk parçayı alırız
+    const updatedMenuItems = menuItems.map((item) => {
+      return { ...item, active: item.link === currentPath || item.link === `/${firstSegment}` };
+    });
+    setMenuItems(updatedMenuItems);
+  }, []);
 
   return (
     <div className="object-left-top h-screen grid grid-rows-[1fr,1fr,7fr] px-8 py-8" style={{ backgroundColor: "#FF8901" }}>
