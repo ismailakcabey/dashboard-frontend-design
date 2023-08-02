@@ -101,7 +101,7 @@ const SideBar = () => {
               >
                 <div className="m-1 px-1 py-1 flex flex-row">
                   <img className="h-8 w-8" src={item.active ? item.imageActive : item.imagePassive} alt="Image" />
-                  <div className={`text-2xl mx-5 font-inter font-medium leading-9 max-lg:hidden ${(item.active)?'text-orange-400':''}`}>
+                  <div className={`text-2xl mx-5 font-inter font-medium leading-9 hidden max-lg:hidden ${(item.active)?'text-orange-400':''}`}>
           {item.name}
         </div>
                 </div>

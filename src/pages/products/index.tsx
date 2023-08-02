@@ -131,10 +131,10 @@ const Products = () => {
       })}
 </div>
       <div className="flex justify-around flex-row max-lg:flex-col">
-      <div className="m-5 basis-1/3 bg-white rounded-lg px-5 py-5"><Box details={boxDetails} baseImage="../../../src/assets/clock.png" baseTitle="Analog Table Clock" secondTitle="General"/></div>
-        <div className="m-5 flex-grow bg-white rounded-lg px-5 py-5"><GraphCmp data={data} isHeader={true} buttonName="View Details" isXAxis={true} isYAxis={true} details="Revenue" router=""/></div>
+      <div className="m-5 basis-1/3 bg-white rounded-lg px-5 py-5 drop-shadow-md"><Box details={boxDetails} baseImage="../../../src/assets/clock.png" baseTitle="Analog Table Clock" secondTitle="General"/></div>
+        <div className="m-5 flex-grow bg-white rounded-lg px-5 py-5 drop-shadow-md"><GraphCmp data={data} isHeader={true} buttonName="View Details" isXAxis={true} isYAxis={true} details="Revenue" router=""/></div>
       </div>
-      <div className="m-5 bg-white rounded-lg">
+      <div className="m-5 bg-white rounded-lg drop-shadow-md">
         <OrdersMainTable/>
       </div>
         </>

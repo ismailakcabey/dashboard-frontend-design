@@ -73,19 +73,19 @@ const DashBoardPage = () => {
         )
       })}
 </div>
-      <div className="flex justify-around flex wrap flex-col lg:flex-row">
+      <div className="flex justify-around flex wrap flex-col lg:flex-row drop-shadow-md">
         <div className="bg-white px-5 py-5 m-5 rounded-lg w-10/10 lg:w-3/4"><DashboardGraph/></div>
         <div className="w-2/5 bg-white px-5 py-5 m-5 rounded-lg w-full lg:w-1/4"><CartDashboard/></div>
       </div>
 
-      <div>
+      <div className="drop-shadow-md">
         <TrafficGraph/>
       </div>
 
-      <div>
+      <div className="drop-shadow-md">
         <SalesDash/>
       </div>
-      <div>
+      <div className="drop-shadow-md">
         <MainTable/>
       </div>
         </>

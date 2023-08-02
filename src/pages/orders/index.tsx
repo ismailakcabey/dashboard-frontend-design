@@ -106,10 +106,10 @@ const Orders = () => {
         )
       })}
 </div>
-<div className="m-5">
+<div className="m-5 drop-shadow-md">
 <GraphCmp isHeader={true} data={data} details="Orders Update" router="" buttonName="View Details" isXAxis={true} isYAxis={true}/>
 </div>
-     <div className="m-5">
+     <div className="m-5 drop-shadow-md">
      <OrdersTable/>
      </div>
       
