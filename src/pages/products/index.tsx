@@ -3,6 +3,7 @@ import DateCmp from "../../components/date"
 import ValueCard from "../../components/valueCard";
 import GraphCmp from "../../components/ordersGraph";
 import Box from "../../components/box";
+import OrdersMainTable from "../../components/productsTable";
 
 const Products = () => {
     const percentsData = [
@@ -129,11 +130,13 @@ const Products = () => {
         )
       })}
 </div>
-      <div className="flex justify-around flex-row m-5 max-lg:flex-col">
+      <div className="flex justify-around flex-row max-lg:flex-col">
       <div className="m-5 basis-1/3 bg-white rounded-lg px-5 py-5"><Box details={boxDetails} baseImage="../../../src/assets/clock.png" baseTitle="Analog Table Clock" secondTitle="General"/></div>
         <div className="m-5 flex-grow bg-white rounded-lg px-5 py-5"><GraphCmp data={data} isHeader={true} buttonName="View Details" isXAxis={true} isYAxis={true} details="Revenue" router=""/></div>
       </div>
-
+      <div className="m-5 bg-white rounded-lg">
+        <OrdersMainTable/>
+      </div>
         </>
     )
 }

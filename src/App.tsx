@@ -15,6 +15,9 @@ function App() {
         <Route path='/orders' element={<Orders/>}/>
         <Route path='/products' element={<Products/>}/>
       </Routes>
+      <div className='grid place-items-center' style={{color:"#8E95A9"}}>
+      eCommerce Platform @ 2020. All right reserved
+      </div>
     </div>
   )
 }
