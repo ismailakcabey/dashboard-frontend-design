@@ -63,7 +63,7 @@ const SideBar = () => {
       {
         imageActive: "../../../src/assets/aGift.png",
         imagePassive: "../../../src/assets/nGift.png",
-        link: "/campaing",
+        link: "/campains",
         active: false,
         name:"Campains"
       },
