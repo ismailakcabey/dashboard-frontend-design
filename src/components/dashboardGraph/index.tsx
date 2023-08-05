@@ -77,7 +77,6 @@ const DashboardGraph = () => {
             return brandColor;
         },
         label: {
-            //@ts-ignore
             content: (originData:any) => {
                 const val = originData.value
 
