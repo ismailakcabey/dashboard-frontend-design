@@ -21,7 +21,6 @@ const DateCmp = ({onDateChange}:IProps) => {
   const oneWeekAgo = dayjs().subtract(1, 'week').format(dateFormat);
         return(
             <RangePicker
-            //@ts-ignore
             onChange={onChange}  picker="date" className="text-sm font-normal font-inter"
             defaultValue={[dayjs(oneWeekAgo), dayjs(today)]}
             format={dateFormat} // Tarih formatını belirtin

@@ -1,4 +1,4 @@
-import { Col } from "antd"
+import { Button, Col, Divider, Row } from "antd"
 import { useEffect, useState } from "react";
 import Step1 from "../../components/campainStep1";
 import Step2 from "../../components/campainStep2";
@@ -43,6 +43,15 @@ const Campains = () => {
             <Step2/>
             <Step3/>
             <Rules/>
+            <Divider />
+            <Row style={{justifyContent:'end'}}>
+              <div>
+                <Button style={{border:'none',boxShadow:'none',color:'#1C2A53',fontWeight:'600',margin:'5px'}}>Cancel</Button>
+              </div>
+              <div>
+                <Button style={{border:'none',boxShadow:'none',backgroundColor:'#FF8901',color:'#FFF',fontWeight:'14px',margin:'5px'}}>Save Campaign</Button>
+              </div>
+            </Row>
             </Col>
         </div>
         </>

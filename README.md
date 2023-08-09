@@ -26,3 +26,21 @@ If you are developing a production application, we recommend updating the config
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
 # dashboardFrontEndDesign
+
+## SS
+
+![alt text](../dashboard-app/src/assets/ss/127.0.0.1_5173_dashboard%20(1).png)
+![alt text](../dashboard-app/src/assets/ss/127.0.0.1_5173_dashboard%20(2).png)
+![alt text](../dashboard-app/src/assets/ss/127.0.0.1_5173_dashboard%20(3).png)
+![alt text](../dashboard-app/src/assets/ss/127.0.0.1_5173_dashboard%20(4).png)
+![alt text](../dashboard-app/src/assets/ss/127.0.0.1_5173_dashboard%20(5).png)
+![alt text](../dashboard-app/src/assets/ss/127.0.0.1_5173_dashboard%20(6).png)
+![alt text](../dashboard-app/src/assets/ss/127.0.0.1_5173_dashboard%20(7).png)
+![alt text](../dashboard-app/src/assets/ss/127.0.0.1_5173_dashboard%20(8).png)
+![alt text](../dashboard-app/src/assets/ss/127.0.0.1_5173_dashboard%20(9).png)
+![alt text](../dashboard-app/src/assets/ss/127.0.0.1_5173_dashboard(iPad%20Air)%20(1).png)
+![alt text](../dashboard-app/src/assets/ss/127.0.0.1_5173_dashboard(iPad%20Air)%20(2).png)
+![alt text](../dashboard-app/src/assets/ss/127.0.0.1_5173_dashboard(iPad%20Air)%20(3).png)
+![alt text](../dashboard-app/src/assets/ss/127.0.0.1_5173_dashboard(iPad%20Air)%20(4).png)
+![alt text](../dashboard-app/src/assets/ss/127.0.0.1_5173_dashboard(iPad%20Air)%20(5).png)
+![alt text](../dashboard-app/src/assets/ss/127.0.0.1_5173_dashboard(iPad%20Air)%20(6).png)
